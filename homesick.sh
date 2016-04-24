@@ -1,8 +1,3 @@
-_homesick_list_castles()
-{
-    echo $(homesick list | sed -e 's/^[ \t]*//' -e "s/  .*//g")
-}
-
 _homesick()
 {
     local cur prev opts
@@ -27,7 +22,7 @@ _homesick()
     # Commands
     case "${prev}" in
         cd|commit|destroy|diff|exec|link|open|pull|push|rc|show_path|status|unlink)
-            opts=$(_homesick_list_castles)
+            opts=$(homesick list | sed -e 's/^[ \t]*//' -e "s/  .*//g")
             COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
             return 0
             ;;
