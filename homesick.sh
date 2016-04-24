@@ -26,32 +26,26 @@ _homesick()
 
     # Commands
     case "${prev}" in
-        cd|commit|destroy|diff|exec)
+        cd|commit|destroy|diff|exec|link|open|pull|push|rc|show_path|status|unlink)
             opts=$(_homesick_list_castles)
             COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
             return 0
             ;;
-        clone|exec_all)
+        clone|exec_all|generate)
             COMPREPLY=( $(compgen -f ${cur}) )
+            return 0
+            ;;
+        list|version)
+            return 0
+            ;;
+        track)
+            COMPREPLY=( $(compgen -f ${cur}) )
+            # ToDo: Complete this
             return 0
             ;;
         *)
             ;;
     esac
-
-    # ToDo: homesick generate PATH
-    # ToDo: homesick help [COMMAND]
-    # ToDo: homesick link CASTLE
-    # ToDo: homesick list
-    # ToDo: homesick open CASTLE
-    # ToDo: homesick pull CASTLE
-    # ToDo: homesick push CASTLE
-    # ToDo: homesick rc CASTLE
-    # ToDo: homesick show_path CASTLE
-    # ToDo: homesick status CASTLE
-    # ToDo: homesick track FILE CASTLE
-    # ToDo: homesick unlink CASTLE
-    # ToDo: homesick version
 
     opts="cd clone commit destroy diff exec exec_all generate help link list open pull push rc show_path status track unlink version"
     COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
