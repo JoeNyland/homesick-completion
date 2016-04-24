@@ -59,6 +59,21 @@ _homesick()
             return 0
         fi
 
+        # ToDo: homesick exec_all COMMAND
+        # ToDo: homesick generate PATH
+        # ToDo: homesick help [COMMAND]
+        # ToDo: homesick link CASTLE
+        # ToDo: homesick list
+        # ToDo: homesick open CASTLE
+        # ToDo: homesick pull CASTLE
+        # ToDo: homesick push CASTLE
+        # ToDo: homesick rc CASTLE
+        # ToDo: homesick show_path CASTLE
+        # ToDo: homesick status CASTLE
+        # ToDo: homesick track FILE CASTLE
+        # ToDo: homesick unlink CASTLE
+        # ToDo: homesick version
+
         opts="cd clone commit destroy diff exec exec_all generate help link list open pull push rc show_path status track unlink version"
         COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
         return 0
