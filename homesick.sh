@@ -38,6 +38,13 @@ _homesick()
             return 0
         fi
 
+        # homesick destroy CASTLE
+        if [[ ${prev} == "destroy" ]]; then
+            opts=$(homesick list | sed -e 's/^[ \t]*//' -e "s/  .*//g")
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+        fi
+
         opts="cd clone commit destroy diff exec exec_all generate help link list open pull push rc show_path status track unlink version"
         COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
         return 0
