@@ -1,4 +1,4 @@
-_homesick() 
+_homesick()
 {
     local cur prev opts
     COMPREPLY=()
@@ -16,11 +16,20 @@ _homesick()
         COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
         return 0
     fi
-    
+
     if [[ ${cur} == * ]] ; then
+
+        # homesick cd CASTLE
+        if [[ ${prev} == "cd" ]]; then
+            opts=$(homesick list | sed -e 's/^[ \t]*//' -e "s/  .*//g")
+            COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+            return 0
+        fi
+
         opts="cd clone commit destroy diff exec exec_all generate help link list open pull push rc show_path status track unlink version"
         COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
         return 0
+
     fi
 
 }
