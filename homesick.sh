@@ -64,7 +64,11 @@ _homesick()
             return 0
         fi
 
-        # ToDo: homesick exec_all COMMAND
+        # homesick exec_all COMMAND
+        if [[ ${prev} == "exec_all" ]]; then
+            return 0
+        fi
+
         # ToDo: homesick generate PATH
         # ToDo: homesick help [COMMAND]
         # ToDo: homesick link CASTLE
