@@ -1,5 +1,5 @@
 # homesick-completion
-Bash tab/auto completion for [Homesick](https://github.com/technicalpickles/homesick).
+Bash completion for [Homesick](https://github.com/technicalpickles/homesick).
 
 ### Installation
 Download the [`homesick`](homesick) file from the repo and `source` it in your `~/.bashrc` file like so:
