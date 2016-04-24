@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 _homesick()
 {
     local cur prev opts
