@@ -20,29 +20,32 @@ _homesick()
         return 0
     fi
 
-    # Commands
+    # Command parameters
     case "${prev}" in
         cd|commit|destroy|diff|exec|link|open|pull|push|rc|show_path|status|unlink)
             opts=$(homesick list | sed -e 's/^[ \t]*//' -e "s/  .*//g")
             COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
             return 0
             ;;
-        clone|exec_all|generate)
+        clone|exec_all|generate|track)
             COMPREPLY=( $(compgen -f ${cur}) )
             return 0
             ;;
         list|version)
             return 0
             ;;
-        track)
-            COMPREPLY=( $(compgen -f ${cur}) )
-            # ToDo: Complete this
-            return 0
-            ;;
         *)
             ;;
     esac
 
+    # Complete destination castle name on tracking a file or directory
+    if [[ "${COMP_WORDS[1]}" == "track" && "${prev}" ]]; then
+        opts=$(homesick list | sed -e 's/^[ \t]*//' -e "s/  .*//g")
+        COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+        return 0
+    fi
+
+    # Commands
     opts="cd clone commit destroy diff exec exec_all generate help link list open pull push rc show_path status track unlink version"
     COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
     return 0
