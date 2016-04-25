@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+
+# ToDo: Review variables
+
 _homesick()
 {
     local cur prev opts
