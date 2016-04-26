@@ -2,7 +2,7 @@
 
 # ToDo: Review variables
 
-_homesick()
+function _homesick()
 {
     local cur prev opts
     COMPREPLY=()
