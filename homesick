@@ -2,7 +2,7 @@
 
 # ToDo: Review variables
 
-function _homesick()
+function _homesick_completion()
 {
     local cur prev opts
     COMPREPLY=()
@@ -54,4 +54,4 @@ function _homesick()
     return 0
 
 }
-complete -F _homesick homesick
+complete -F _homesick_completion homesick
