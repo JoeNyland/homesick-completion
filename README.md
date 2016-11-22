@@ -5,7 +5,7 @@ Bash completion for [Homesick](https://github.com/technicalpickles/homesick).
 
 ### Mac OS X via [Homebrew][homebrew]
 ```
-brew install rake-completion
+brew install homesick-completion
 ```
   		  
 ### *nix from source
